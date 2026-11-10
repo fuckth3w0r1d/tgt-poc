@@ -1,0 +1,7 @@
+services:
+  target:
+    build: .
+    image: tgt-poc-bookworm
+    container_name: tgt-target
+    ports:
+      - "3260:3260"
